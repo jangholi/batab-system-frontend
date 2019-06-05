@@ -1,0 +1,13 @@
+node_modules/
+.sass-cache/
+.idea/
+.tmp/
+/src/app/env.config.js
+/src/app/version.js
+/dist
+npm-debug.log
+
+yarn.lock
+package-lock.json
+
+.DS_Store
