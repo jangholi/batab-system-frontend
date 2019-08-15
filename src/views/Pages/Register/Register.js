@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardFooter, Col, Container, FormGroup, Form,Label , Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 
 class Register extends Component {
+
     constructor(props){
         super(props)
         this.state = {
@@ -23,7 +25,48 @@ class Register extends Component {
         })
     }
     register(){
-        console.log('this state:  ', this.state)
+        var obj = {
+            "username": "amir",
+            "email": "a.yaghoobi.dev@gmail.com",
+            "heigth": 180,
+            "weight": 75,
+            "gender": "M",
+            "practice_from": "2019-08-12",
+            "practice_to": "2019-09-12",
+            "password": "asdasdasd123",
+            "tobacco_consumption": false,
+            "arthritic_disease": false,
+            "internal_disease": false
+        }
+        axios({
+            method: 'post',
+            url: 'https://batab-backend-batab.fandogh.cloud/users/',
+            data: obj,
+
+        }).then(function (data) {
+            console.log('success', data)
+        }).catch(function (error) {
+            console.log('error', error)
+        });
+
+
+
+        // console.log('this state:  ', this.state)
+        // $.ajax({
+        //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
+        //     data: obj,
+        //     type: "POST",
+        //     // headers: {
+        //     //     'Content-type': 'application/x-www-form-urlencoded',
+        //     //     'accept': 'application/json'
+        //     // },
+        //     success: (data) => {
+        //         console.log('success', data)
+        //     },
+        //     error: (e) => {
+        //         console.log('error', e)
+        //     }
+        // });
     }
     render() {
         return (
