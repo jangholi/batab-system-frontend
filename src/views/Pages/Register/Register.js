@@ -67,6 +67,51 @@ class Register extends Component {
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
+                                        <FormGroup inline>
+                                            <label className="text-muted">مصرف دخانیات:</label>
+                                            <FormGroup check inline>
+                                                <Label check>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <span className='mr-1'>بله</span>
+                                                </Label>
+                                            </FormGroup>
+                                            <FormGroup check inline>
+                                                <Label check>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <span className='mr-1'>خیر</span>
+                                                </Label>
+                                            </FormGroup>
+                                        </FormGroup>
+                                        <FormGroup inline>
+                                            <label className="text-muted">سابقه بیماری مفصلی:</label>
+                                            <FormGroup check inline>
+                                                <Label check>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <span className='mr-1'>بله</span>
+                                                </Label>
+                                            </FormGroup>
+                                            <FormGroup check inline>
+                                                <Label check>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <span className='mr-1'>خیر</span>
+                                                </Label>
+                                            </FormGroup>
+                                        </FormGroup>
+                                        <FormGroup inline>
+                                            <label className="text-muted">سابقه بیماری داخلی:</label>
+                                            <FormGroup check inline>
+                                                <Label check>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <span className='mr-1'>بله</span>
+                                                </Label>
+                                            </FormGroup>
+                                            <FormGroup check inline>
+                                                <Label check>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <span className='mr-1'>خیر</span>
+                                                </Label>
+                                            </FormGroup>
+                                        </FormGroup>
                                         <FormGroup inline >
                                             <label className="text-muted">سابق تمرین:</label>
                                             <FormGroup check inline>
