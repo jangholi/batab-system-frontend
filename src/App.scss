@@ -66,11 +66,14 @@ body{
 }
 // ------------------------------------------- add style to login and register
 .authbg {
-  background-image: url("assets/img/auth-bg2.jpg");
+  background-image: url("assets/img/auth-bg9.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
   .card {
     margin-top: 1.5rem;
+    background-color: #ffffffdb!important;
   }
   span{
     font-size: 12px;
