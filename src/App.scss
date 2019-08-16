@@ -19,6 +19,24 @@
   url('./assets/fonts/IRANSans-web.ttf') format('ttf');
   font-weight: bold;
 }
+@font-face {
+  font-family: 'iransans-web-bold';
+  src: url('./assets/fonts/IRANSans-Bold-web.eot');
+  src: url('./assets/fonts/IRANSans-Bold-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('./assets/fonts/IRANSans-Bold-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('./assets/fonts/IRANSans-Bold-web.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('./assets/fonts/IRANSans-Bold-web.ttf') format('ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'iransans-web-medium';
+  src: url('./assets/fonts/IRANSans-Medium-web.eot');
+  src: url('./assets/fonts/IRANSans-Medium-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('./assets/fonts/IRANSans-Medium-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('./assets/fonts/IRANSans-Medium-web.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('./assets/fonts/IRANSans-Medium-web.ttf') format('ttf');
+  font-weight: bold;
+}
 body{
   font-family: iransans-web;
 }
@@ -29,4 +47,10 @@ body{
   .card {
     margin-top: 1.5rem;
   }
+}
+.medium-font {
+  font-family: iransans-web-medium;
+}
+.bold-font{
+  font-family: iransans-web-bold;
 }
