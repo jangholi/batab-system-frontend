@@ -31,13 +31,12 @@ class Login extends Component {
                 data: loginObj,
 
             }).then(function (data) {
+                this.props.history.push('/dashboard')
                 console.log('success', data)
             }).catch(function (error) {
                 console.log('error', error)
             });
         }
-        // this.props.history.push('/dashboard')
-        console.log('state login', this.state);
     }
     validateLogin(){
         var validate = false;
