@@ -40,6 +40,28 @@
 body{
   font-family: iransans-web;
 }
+.medium-font {
+  font-family: iransans-web-medium;
+}
+.bold-font {
+  font-family: iransans-web-bold;
+}
+.font13 {
+  font-size: 13px!important;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 12px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: 12px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-size: 12px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-size: 12px;
+}
+// ------------------------------------------- add style to login and register
 .authbg {
   background-image: url("assets/img/auth-bg2.jpg");
   background-repeat: no-repeat;
@@ -47,10 +69,4 @@ body{
   .card {
     margin-top: 1.5rem;
   }
-}
-.medium-font {
-  font-family: iransans-web-medium;
-}
-.bold-font{
-  font-family: iransans-web-bold;
 }
