@@ -11,11 +11,15 @@ class Register extends Component {
             username: '',
             email: '',
             gender: '',
-            history: '',
-            historyFrom: '',
-            historyTo: '',
-            height: '',
-            weight: ''
+            practice_from: '',
+            practice_to: '',
+            heigth: '',
+            weight: '',
+            password: '',
+            tobacco_consumption: '',
+            arthritic_disease: '',
+            internal_disease: '',
+            history: ''
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -115,13 +119,13 @@ class Register extends Component {
                                             <label className="text-muted">جنسیت:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'M'}/>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" value={'M'}/>
                                                     <span className='ml-1'>مرد</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'F'}/>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" value={'F'}/>
                                                     <span className='ml-1'>زن</span>
                                                 </Label>
                                             </FormGroup>
@@ -130,13 +134,13 @@ class Register extends Component {
                                             <label className="text-muted">مصرف دخانیات:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'tobacco_consumption'} type="radio" name="gender" value={true}/>
+                                                    <Input onChange={this.onChange} name={'tobacco_consumption'} type="radio" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'tobacco_consumption'} type="radio" name="gender" value={false}/>
+                                                    <Input onChange={this.onChange} name={'tobacco_consumption'} type="radio" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -145,13 +149,13 @@ class Register extends Component {
                                             <label className="text-muted">سابقه بیماری مفصلی:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" name="gender" value={true}/>
+                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" name="gender" value={false}/>
+                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -160,13 +164,13 @@ class Register extends Component {
                                             <label className="text-muted">سابقه بیماری داخلی:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'internal_disease'} type="radio" name="gender" value={true}/>
+                                                    <Input onChange={this.onChange} name={'internal_disease'} type="radio" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'internal_disease'} type="radio" name="gender" value={false}/>
+                                                    <Input onChange={this.onChange} name={'internal_disease'} type="radio" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -211,7 +215,7 @@ class Register extends Component {
                                                         <i className="fa fa-heart-o"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" placeholder="قد" onChange={this.onChange} name={'height'} />
+                                                <Input type="number" placeholder="قد" onChange={this.onChange} name={'heigth'} />
                                             </InputGroup>
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
