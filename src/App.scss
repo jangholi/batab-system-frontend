@@ -22,8 +22,11 @@
 body{
   font-family: iransans-web;
 }
-.authbg{
+.authbg {
   background-image: url("assets/img/auth-bg2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  .card {
+    margin-top: 1.5rem;
+  }
 }
