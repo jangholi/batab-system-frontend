@@ -70,7 +70,7 @@ class Register extends Component {
     }
     render() {
         return (
-            <div className="app flex-row align-items-center authbg">
+            <div className="app align-items-center authbg">
                 <Container>
                     <Row className="justify-content-center">
                         <Col md="6">
@@ -94,6 +94,22 @@ class Register extends Component {
                                                 </InputGroupText>
                                             </InputGroupAddon>
                                             <Input type="email" onChange={this.onChange} name={'email'} placeholder="ایمیل" />
+                                        </InputGroup>
+                                        <InputGroup className="mb-3 ltr">
+                                            <InputGroupAddon addonType="prepend">
+                                                <InputGroupText>
+                                                    <i className="fa fa-envelope-o"></i>
+                                                </InputGroupText>
+                                            </InputGroupAddon>
+                                            <Input type="password" onChange={this.onChange} name={'password'} placeholder="کلمه عبور" />
+                                        </InputGroup>
+                                        <InputGroup className="mb-3 ltr">
+                                            <InputGroupAddon addonType="prepend">
+                                                <InputGroupText>
+                                                    <i className="fa fa-envelope-o"></i>
+                                                </InputGroupText>
+                                            </InputGroupAddon>
+                                            <Input type="password" onChange={this.onChange} name={'retype-password'} placeholder="تکرار کلمه عبور" />
                                         </InputGroup>
                                         <FormGroup inline>
                                             <label className="text-muted">جنسیت:</label>
