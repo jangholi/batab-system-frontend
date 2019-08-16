@@ -190,7 +190,7 @@ class Register extends Component {
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
-                                                        <i className="fa fa-heart-o"></i>
+                                                        <i className="fa fa-calendar"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
                                                 <Input type="number" onChange={this.onChange} name={'practice_from'} placeholder="از" />
@@ -198,7 +198,7 @@ class Register extends Component {
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
-                                                        <i className="fa fa-heart-o"></i>
+                                                        <i className="fa fa-calendar"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
                                                 <Input type="number" onChange={this.onChange} name={'practice_to'} placeholder="تا" />
