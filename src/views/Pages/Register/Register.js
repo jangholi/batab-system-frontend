@@ -18,6 +18,7 @@ class Register extends Component {
             heigth: null,
             weight: null,
             password: '',
+            retypePassword: '',
             tobacco_consumption: '',
             arthritic_disease: '',
             internal_disease: '',
@@ -85,11 +86,113 @@ class Register extends Component {
     }
     validateRegister(){
         var validate = false;
-        console.log('this state:  ', this.state)
-        if(!this.state.username){
-            alert('enter username');
-
+        if(this.state.username){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا نام کاربری را وارد کنید.",{className: 'medium-font'});
+            return
         }
+        if(this.state.email){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا ایمیل را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.password){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا کلمه عبور را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.retypePassword){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا تکرار کلمه عبور را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.password && this.state.retypePassword && this.state.password !== this.state.retypePassword){
+            validate = false
+            toast.success("کلمه عبور و تکرار کلمه عبور یکسان نیستند.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.retypePassword){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا تکرار کلمه عبور را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.gender){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا جنسیت را مشخص کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.tobacco_consumption){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا مصرف دخانیات را مشخص کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.arthritic_disease){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا سابقه بیماری مفصلی را مشخص کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.internal_disease){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا سابقه بیماری داخلی را مشخص کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.history){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا سابقه‌ی تمرین را مشخص کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.history && this.state.history === 'true'){
+            if(this.state.practice_from){
+                validate = true
+            } else {
+                validate = false
+                toast.success("لطفا زمان شروع سابقه‌ی تمرین را وارد کنید.",{className: 'medium-font'});
+                return
+            }
+            if(this.state.practice_to){
+                validate = true
+            } else {
+                validate = false
+                toast.success("لطفا زمان پایان سابقه‌ی تمرین را وارد کنید.",{className: 'medium-font'});
+                return
+            }
+        }
+        if(this.state.heigth){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا قد را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.weight){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا وزن را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+
+        return validate
     }
     render() {
         return (
@@ -133,7 +236,7 @@ class Register extends Component {
                                                     <i className="fa fa-key"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
-                                            <Input type="password" onChange={this.onChange} name={'retype-password'} placeholder="تکرار کلمه عبور" />
+                                            <Input type="password" onChange={this.onChange} name={'retypePassword'} placeholder="تکرار کلمه عبور" />
                                         </InputGroup>
                                         <FormGroup inline>
                                             <label className="text-muted">جنسیت:</label>
