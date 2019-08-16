@@ -85,7 +85,7 @@ class Register extends Component {
                                                     <i className="icon-user"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
-                                            <Input type="text" onChange={this.onChange} name={'username'} placeholder="نام کاربری" autoComplete="username" />
+                                            <Input type="text" onChange={this.onChange} name={'username'} placeholder="نام کاربری" />
                                         </InputGroup>
                                         <InputGroup className="mb-3 ltr">
                                             <InputGroupAddon addonType="prepend">
@@ -93,19 +93,19 @@ class Register extends Component {
                                                     <i className="fa fa-envelope-o"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
-                                            <Input type="email" onChange={this.onChange} name={'email'} placeholder="ایمیل" autoComplete="email" />
+                                            <Input type="email" onChange={this.onChange} name={'email'} placeholder="ایمیل" />
                                         </InputGroup>
                                         <FormGroup inline>
                                             <label className="text-muted">جنسیت:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'M'}/>
                                                     <span className='ml-1'>مرد</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'F'}/>
                                                     <span className='ml-1'>زن</span>
                                                 </Label>
                                             </FormGroup>
@@ -114,13 +114,13 @@ class Register extends Component {
                                             <label className="text-muted">مصرف دخانیات:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <Input onChange={this.onChange} name={'tobacco_consumption'} type="radio" name="gender" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <Input onChange={this.onChange} name={'tobacco_consumption'} type="radio" name="gender" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -129,13 +129,13 @@ class Register extends Component {
                                             <label className="text-muted">سابقه بیماری مفصلی:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" name="gender" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" name="gender" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -144,13 +144,13 @@ class Register extends Component {
                                             <label className="text-muted">سابقه بیماری داخلی:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
+                                                    <Input onChange={this.onChange} name={'internal_disease'} type="radio" name="gender" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
+                                                    <Input onChange={this.onChange} name={'internal_disease'} type="radio" name="gender" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -177,7 +177,7 @@ class Register extends Component {
                                                         <i className="fa fa-heart-o"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" onChange={this.onChange} name={'historyFrom'} placeholder="از" autoComplete="height" />
+                                                <Input type="number" onChange={this.onChange} name={'practice_from'} placeholder="از" />
                                             </InputGroup>
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
@@ -185,7 +185,7 @@ class Register extends Component {
                                                         <i className="fa fa-heart-o"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" onChange={this.onChange} name={'historyTo'} placeholder="تا" autoComplete="height" />
+                                                <Input type="number" onChange={this.onChange} name={'practice_to'} placeholder="تا" />
                                             </InputGroup>
                                         </Row>
                                         <Row>
@@ -195,7 +195,7 @@ class Register extends Component {
                                                         <i className="fa fa-heart-o"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" placeholder="قد" onChange={this.onChange} name={'height'} autoComplete="height" />
+                                                <Input type="number" placeholder="قد" onChange={this.onChange} name={'height'} />
                                             </InputGroup>
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
@@ -203,7 +203,7 @@ class Register extends Component {
                                                         <i className="fa fa-heart-o"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" onChange={this.onChange} name={'weight'} placeholder="وزن" autoComplete="weight" />
+                                                <Input type="number" onChange={this.onChange} name={'weight'} placeholder="وزن" />
                                             </InputGroup>
                                         </Row>
                                         <Button color="success" block onClick={this.register.bind(this)}>ایجاد حساب</Button>
