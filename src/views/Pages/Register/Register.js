@@ -98,7 +98,7 @@ class Register extends Component {
                                         <InputGroup className="mb-3 ltr">
                                             <InputGroupAddon addonType="prepend">
                                                 <InputGroupText>
-                                                    <i className="fa fa-envelope-o"></i>
+                                                    <i className="fa fa-key"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
                                             <Input type="password" onChange={this.onChange} name={'password'} placeholder="کلمه عبور" />
@@ -106,7 +106,7 @@ class Register extends Component {
                                         <InputGroup className="mb-3 ltr">
                                             <InputGroupAddon addonType="prepend">
                                                 <InputGroupText>
-                                                    <i className="fa fa-envelope-o"></i>
+                                                    <i className="fa fa-key"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
                                             <Input type="password" onChange={this.onChange} name={'retype-password'} placeholder="تکرار کلمه عبور" />
