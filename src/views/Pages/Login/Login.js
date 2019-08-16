@@ -17,10 +17,14 @@ class Login extends Component {
         })
     }
     login(){
+        var loginObj = {
+            username: this.state.username,
+            password: this.state.password,
+        }
         // this.props.history.push('/dashboard')
         console.log('state login', this.state);
     }
-    validateRegister(){
+    validateLogin(){
         var validate = false;
         if(this.state.username){
             validate = true
