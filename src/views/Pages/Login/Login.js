@@ -6,31 +6,8 @@ class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            series: [{
-                name: 'Gases',
-                data: [
-                    {
-                        name: 'Argon',
-                        y: 0.9,
-                        color: '#3498db'
-                    },
-                    {
-                        name: 'Nitrogen',
-                        y: 78.1,
-                        color: '#9b59b6'
-                    },
-                    {
-                        name: 'Oxygen',
-                        y: 20.9,
-                        color: '#2ecc71'
-                    },
-                    {
-                        name: 'Trace Gases',
-                        y: 0.1,
-                        color: '#f1c40f'
-                    }
-                ]
-            }]
+            username: '',
+            password: ''
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -40,8 +17,27 @@ class Login extends Component {
         })
     }
     login(){
-        this.props.history.push('/dashboard')
+        // this.props.history.push('/dashboard')
         console.log('state login', this.state);
+    }
+    validateRegister(){
+        var validate = false;
+        if(this.state.username){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا نام کاربری را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+        if(this.state.password){
+            validate = true
+        } else {
+            validate = false
+            toast.success("لطفا کلمه عبور را وارد کنید.",{className: 'medium-font'});
+            return
+        }
+
+        return validate
     }
 
     render() {
@@ -62,7 +58,7 @@ class Login extends Component {
                                                         <i className="icon-user"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="text" onChange={this.onChange} name={'username'} placeholder="نام کاربری" autoComplete="username" value={this.state.username} />
+                                                <Input type="text" onChange={this.onChange} name={'username'} placeholder="نام کاربری"  />
                                             </InputGroup>
                                             <InputGroup className="mb-4 ltr">
                                                 <InputGroupAddon addonType="prepend">
@@ -70,7 +66,7 @@ class Login extends Component {
                                                         <i className="icon-lock"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="password" onChange={this.onChange} name={'password'} placeholder="کلمه عبور" autoComplete="current-password" value={this.state.password}/>
+                                                <Input type="password" onChange={this.onChange} name={'password'} placeholder="کلمه عبور" />
                                             </InputGroup>
                                             <Button className='medium-font' color="success" block onClick={this.login.bind(this)}>ورود</Button>
                                             <p className="text-center font12 mt-15">
