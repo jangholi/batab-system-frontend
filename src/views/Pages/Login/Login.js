@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import axios from "axios/index";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Login extends Component {
     constructor(props) {
@@ -20,6 +23,18 @@ class Login extends Component {
         var loginObj = {
             username: this.state.username,
             password: this.state.password,
+        }
+        if(this.validateLogin()){
+            axios({
+                method: 'post',
+                url: 'https://batab-backend-batab.fandogh.cloud/users/login',
+                data: loginObj,
+
+            }).then(function (data) {
+                console.log('success', data)
+            }).catch(function (error) {
+                console.log('error', error)
+            });
         }
         // this.props.history.push('/dashboard')
         console.log('state login', this.state);
@@ -48,6 +63,7 @@ class Login extends Component {
         return (
             <div className="app flex-row align-items-center authbg">
                 <Container>
+                    <ToastContainer />
                     <Row className="justify-content-center">
                         <Col md="5">
                             <CardGroup>
