@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, Card, CardBody, CardFooter, Col, Container, FormGroup, Form,Label , Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Register extends Component {
 
@@ -35,20 +37,22 @@ class Register extends Component {
         }
     }
     register(){
-        var obj = {
-            "username": "amir",
-            "email": "a.yaghoobi.dev@gmail.com",
-            "heigth": 180,
-            "weight": 75,
-            "gender": "M",
-            "practice_from": "2019-08-12",
-            "practice_to": "2019-09-12",
-            "password": "asdasdasd123",
-            "tobacco_consumption": false,
-            "arthritic_disease": false,
-            "internal_disease": false
-        }
-        console.log('obj', obj)
+
+        this.validateRegister();
+        // var obj = {
+        //     "username": "amir",
+        //     "email": "a.yaghoobi.dev@gmail.com",
+        //     "heigth": 180,
+        //     "weight": 75,
+        //     "gender": "M",
+        //     "practice_from": "2019-08-12",
+        //     "practice_to": "2019-09-12",
+        //     "password": "asdasdasd123",
+        //     "tobacco_consumption": false,
+        //     "arthritic_disease": false,
+        //     "internal_disease": false
+        // }
+        // console.log('obj', obj)
         // axios({
         //     method: 'post',
         //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
@@ -62,7 +66,7 @@ class Register extends Component {
 
 
 
-        console.log('this state:  ', this.state)
+        // console.log('this state:  ', this.state)
         // $.ajax({
         //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
         //     data: obj,
@@ -79,10 +83,19 @@ class Register extends Component {
         //     }
         // });
     }
+    validateRegister(){
+        var validate = false;
+        console.log('this state:  ', this.state)
+        if(!this.state.username){
+            alert('enter username');
+
+        }
+    }
     render() {
         return (
             <div className="app align-items-center authbg">
                 <Container>
+                    <ToastContainer />
                     <Row className="justify-content-center">
                         <Col md="6">
                             <Card className="mx-4">
