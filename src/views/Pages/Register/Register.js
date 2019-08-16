@@ -100,13 +100,13 @@ class Register extends Component {
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
-                                                    <span className='mr-1'>مرد</span>
+                                                    <span className='ml-1'>مرد</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
-                                                    <span className='mr-1'>زن</span>
+                                                    <span className='ml-1'>زن</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
@@ -115,13 +115,13 @@ class Register extends Component {
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
-                                                    <span className='mr-1'>بله</span>
+                                                    <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
-                                                    <span className='mr-1'>خیر</span>
+                                                    <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
@@ -130,13 +130,13 @@ class Register extends Component {
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
-                                                    <span className='mr-1'>بله</span>
+                                                    <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
-                                                    <span className='mr-1'>خیر</span>
+                                                    <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
@@ -145,13 +145,13 @@ class Register extends Component {
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'male'}/>
-                                                    <span className='mr-1'>بله</span>
+                                                    <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input onChange={this.onChange} name={'gender'} type="radio" name="gender" value={'female'}/>
-                                                    <span className='mr-1'>خیر</span>
+                                                    <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
@@ -160,13 +160,13 @@ class Register extends Component {
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input type="radio" onChange={this.onChange} name={'history'} value={'yes'}/>
-                                                    <span className='mr-1'>بله</span>
+                                                    <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
                                                     <Input type="radio" onChange={this.onChange} name={'history'} value={'no'} />
-                                                    <span className='mr-1'>خیر</span>
+                                                    <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
