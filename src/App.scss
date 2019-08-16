@@ -9,3 +9,16 @@
 @import '~simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
 @import './scss/style.scss';
+
+@font-face {
+  font-family: 'iransans-web';
+  src: url('./assets/fonts/IRANSans-web.eot');
+  src: url('./assets/fonts/IRANSans-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('./assets/fonts/IRANSans-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('./assets/fonts/IRANSans-web.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('./assets/fonts/IRANSans-web.ttf') format('ttf');
+  font-weight: bold;
+}
+body{
+  font-family: iransans-web;
+}
