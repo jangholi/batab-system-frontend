@@ -78,7 +78,7 @@ class Register extends Component {
                                 <CardBody className="p-4">
                                     <Form>
                                         <h3 className='medium-font'>ثبت‌نام</h3>
-                                        <p className="text-muted">حساب خود را ایجاد کنید.</p>
+                                        <p className="text-muted font13">حساب خود را ایجاد کنید.</p>
                                         <InputGroup className="mb-3 ltr">
                                             <InputGroupAddon addonType="prepend">
                                                 <InputGroupText>
