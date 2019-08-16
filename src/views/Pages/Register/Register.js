@@ -38,25 +38,9 @@ class Register extends Component {
         }
     }
     register(){
-        var registerObj = {
-            username: this.state.username,
-            email:  this.state.email,
-            heigth: Number(this.state.heigth),
-            weight: Number(this.state.weight),
-            gender: this.state.gender,
-            password: this.state.password,
-            tobacco_consumption: !!this.state.tobacco_consumption,
-            arthritic_disease: !!this.state.arthritic_disease,
-            internal_disease: !!this.state.internal_disease,
-        }
-        if(this.state.history && this.state.history === 'true'){
-            registerObj.practice_from = this.state.practice_from;
-            registerObj.practice_to = this.state.practice_to;
-        }
-        if(this.validateRegister()){
-            // alert('yes')
-        }
-        var obj = {
+        var registerObj = this.createRegisterObj();
+
+        var testObj = {
             "username": "amir",
             "email": "a.yaghoobi.dev@gmail.com",
             "heigth": 180,
@@ -69,37 +53,18 @@ class Register extends Component {
             "arthritic_disease": false,
             "internal_disease": false
         }
-        console.log('registerObj', registerObj)
-        console.log('obj', obj)
-        // axios({
-        //     method: 'post',
-        //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
-        //     data: obj,
-        //
-        // }).then(function (data) {
-        //     console.log('success', data)
-        // }).catch(function (error) {
-        //     console.log('error', error)
-        // });
+        if(this.validateRegister()){
+            axios({
+                method: 'post',
+                url: 'https://batab-backend-batab.fandogh.cloud/users/',
+                data: testObj,
 
-
-
-        // console.log('this state:  ', this.state)
-        // $.ajax({
-        //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
-        //     data: obj,
-        //     type: "POST",
-        //     // headers: {
-        //     //     'Content-type': 'application/x-www-form-urlencoded',
-        //     //     'accept': 'application/json'
-        //     // },
-        //     success: (data) => {
-        //         console.log('success', data)
-        //     },
-        //     error: (e) => {
-        //         console.log('error', e)
-        //     }
-        // });
+            }).then(function (data) {
+                console.log('success', data)
+            }).catch(function (error) {
+                console.log('error', error)
+            });
+        }
     }
     validateRegister(){
         var validate = false;
@@ -210,6 +175,24 @@ class Register extends Component {
         }
 
         return validate
+    }
+    createRegisterObj(){
+        var registerObj = {
+            username: this.state.username,
+            email:  this.state.email,
+            heigth: Number(this.state.heigth),
+            weight: Number(this.state.weight),
+            gender: this.state.gender,
+            password: this.state.password,
+            tobacco_consumption: !!this.state.tobacco_consumption,
+            arthritic_disease: !!this.state.arthritic_disease,
+            internal_disease: !!this.state.internal_disease,
+        }
+        if(this.state.history && this.state.history === 'true'){
+            registerObj.practice_from = this.state.practice_from;
+            registerObj.practice_to = this.state.practice_to;
+        }
+        return registerObj
     }
     render() {
         return (
