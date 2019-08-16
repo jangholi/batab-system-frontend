@@ -222,7 +222,7 @@ class Register extends Component {
                                                 <Input type="number" onChange={this.onChange} name={'weight'} placeholder="وزن" />
                                             </InputGroup>
                                         </Row>
-                                        <Button color="success" block onClick={this.register.bind(this)}>ایجاد حساب</Button>
+                                        <Button className='medium-font' color="success" block onClick={this.register.bind(this)}>ایجاد حساب</Button>
                                         <p className="text-center font12 mt-15">
                                             <span>ثبت‌نام کرده‌اید؟</span>
                                             <Link to='/login'>&nbsp;ورود&nbsp;</Link>
