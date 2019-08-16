@@ -38,22 +38,39 @@ class Register extends Component {
         }
     }
     register(){
-
-        this.validateRegister();
-        // var obj = {
-        //     "username": "amir",
-        //     "email": "a.yaghoobi.dev@gmail.com",
-        //     "heigth": 180,
-        //     "weight": 75,
-        //     "gender": "M",
-        //     "practice_from": "2019-08-12",
-        //     "practice_to": "2019-09-12",
-        //     "password": "asdasdasd123",
-        //     "tobacco_consumption": false,
-        //     "arthritic_disease": false,
-        //     "internal_disease": false
-        // }
-        // console.log('obj', obj)
+        var registerObj = {
+            username: this.state.username,
+            email:  this.state.email,
+            heigth: Number(this.state.heigth),
+            weight: Number(this.state.weight),
+            gender: this.state.gender,
+            password: this.state.password,
+            tobacco_consumption: !!this.state.tobacco_consumption,
+            arthritic_disease: !!this.state.arthritic_disease,
+            internal_disease: !!this.state.internal_disease,
+        }
+        if(this.state.history && this.state.history === 'true'){
+            registerObj.practice_from = this.state.practice_from;
+            registerObj.practice_to = this.state.practice_to;
+        }
+        if(this.validateRegister()){
+            // alert('yes')
+        }
+        var obj = {
+            "username": "amir",
+            "email": "a.yaghoobi.dev@gmail.com",
+            "heigth": 180,
+            "weight": 75,
+            "gender": "M",
+            "practice_from": "2019-08-12",
+            "practice_to": "2019-09-12",
+            "password": "asdasdasd123",
+            "tobacco_consumption": false,
+            "arthritic_disease": false,
+            "internal_disease": false
+        }
+        console.log('registerObj', registerObj)
+        console.log('obj', obj)
         // axios({
         //     method: 'post',
         //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
