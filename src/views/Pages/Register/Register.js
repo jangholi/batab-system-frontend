@@ -13,13 +13,14 @@ class Register extends Component {
             gender: '',
             practice_from: '',
             practice_to: '',
-            heigth: '',
-            weight: '',
+            heigth: null,
+            weight: null,
             password: '',
             tobacco_consumption: '',
             arthritic_disease: '',
             internal_disease: '',
-            history: ''
+            history: '',
+            hideHistoryDate: true,
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -27,6 +28,11 @@ class Register extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+        if(e.target.name === 'history'){
+            this.setState({
+                hideHistoryDate: e.target.value === 'true' ? false : true
+            })
+        }
     }
     register(){
         var obj = {
@@ -42,20 +48,21 @@ class Register extends Component {
             "arthritic_disease": false,
             "internal_disease": false
         }
-        axios({
-            method: 'post',
-            url: 'https://batab-backend-batab.fandogh.cloud/users/',
-            data: obj,
+        console.log('obj', obj)
+        // axios({
+        //     method: 'post',
+        //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
+        //     data: obj,
+        //
+        // }).then(function (data) {
+        //     console.log('success', data)
+        // }).catch(function (error) {
+        //     console.log('error', error)
+        // });
 
-        }).then(function (data) {
-            console.log('success', data)
-        }).catch(function (error) {
-            console.log('error', error)
-        });
 
 
-
-        // console.log('this state:  ', this.state)
+        console.log('this state:  ', this.state)
         // $.ajax({
         //     url: 'https://batab-backend-batab.fandogh.cloud/users/',
         //     data: obj,
@@ -179,18 +186,18 @@ class Register extends Component {
                                             <label className="text-muted">سابق تمرین:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'yes'}/>
+                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'true'}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'no'} />
+                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'false'} />
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
-                                        <Row>
+                                        <Row hidden = {this.state.hideHistoryDate}>
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
