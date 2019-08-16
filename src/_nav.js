@@ -1,13 +1,9 @@
 export default {
   items: [
     {
-      name: 'Dashboard',
+      name: 'برنامه‌های من',
       url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      }
+      icon: 'icon-speedometer'
     }
   ],
 };
