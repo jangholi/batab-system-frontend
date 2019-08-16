@@ -49,13 +49,13 @@ class Login extends Component {
             <div className="app flex-row align-items-center authbg">
                 <Container>
                     <Row className="justify-content-center">
-                        <Col md="8">
+                        <Col md="5">
                             <CardGroup>
                                 <Card className="p-4 login-card">
                                     <CardBody>
                                         <Form>
-                                            <h1>ورود</h1>
-                                            <p className="text-muted">ورود به حساب</p>
+                                            <h3 className='medium-font'>ورود</h3>
+                                            <p className="text-muted font13">ورود به حساب</p>
                                             <InputGroup className="mb-3 ltr">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
@@ -72,28 +72,12 @@ class Login extends Component {
                                                 </InputGroupAddon>
                                                 <Input type="password" onChange={this.onChange} name={'password'} placeholder="کلمه عبور" autoComplete="current-password" value={this.state.password}/>
                                             </InputGroup>
-                                            <Row>
-                                                <Col xs="6" className="text-right">
-                                                    <Button color="link" className="px-0">کلمه عبورتان را فراموش کرده‌اید؟</Button>
-                                                </Col>
-                                                <Col xs="6" className="text-left">
-                                                    <Button color="primary" className="px-4" onClick={this.login.bind(this)}>ورود</Button>
-                                                </Col>
-                                            </Row>
-                                        </Form>
-                                    </CardBody>
-                                </Card>
-                                <Card className="text-white bg-primary py-5 d-md-down-none register-card" style={{ width: 44 + '%' }}>
-                                    <CardBody className="text-center">
-                                        <div>
-                                            <h2>ثبت‌نام</h2>
-                                            <p>
-                                                اگر عضو خانواده بزرگ باتاب نبوده‌اید؛ همین حالا ثبت‌نام کنید.
+                                            <Button className='medium-font' color="success" block onClick={this.login.bind(this)}>ورود</Button>
+                                            <p className="text-center font12 mt-15">
+                                                <span>ثبت‌نام نکرده‌اید؟</span>
+                                                <Link to='/register'>&nbsp;ثبت‌نام&nbsp;</Link>
                                             </p>
-                                            <Button color="primary" className="mt-3 register-btn" active>
-                                                <Link to='/register'>ثبت‌نام</Link>
-                                            </Button>
-                                        </div>
+                                        </Form>
                                     </CardBody>
                                 </Card>
                             </CardGroup>
