@@ -79,3 +79,10 @@ body{
     font-size: 12px;
   }
 }
+.logout{
+  color: gray!important;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}

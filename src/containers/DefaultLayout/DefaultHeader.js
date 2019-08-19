@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Nav } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
+import { AppNavbarBrand, AppSidebarToggler, AppHeaderDropdown } from '@coreui/react';
 
 import logo from '../../assets/img/brand/logo.png'
 import sygnet from '../../assets/img/brand/logo.png'
@@ -13,24 +14,30 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
-  render() {
+      render() {
+        return (
+          <React.Fragment>
+            <AppSidebarToggler className="d-lg-none" display="md" mobile />
+            <AppNavbarBrand
+              full={{ src: logo, width: 89, alt: 'batab Logo' }}
+              minimized={{ src: sygnet, width: 50, alt: 'batab Logo' }}
+            />
+            <AppSidebarToggler className="d-md-down-none" display="lg" />
 
-    // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
-
-    return (
-      <React.Fragment>
-        <AppSidebarToggler className="d-lg-none" display="md" mobile />
-        <AppNavbarBrand
-          full={{ src: logo, width: 89, alt: 'batab Logo' }}
-          minimized={{ src: sygnet, width: 50, alt: 'batab Logo' }}
-        />
-        {/*<AppSidebarToggler className="d-md-down-none" display="lg" />*/}
-
-        <Nav className="ml-auto"></Nav>
-      </React.Fragment>
-    );
-  }
+            <Nav className="ml-auto"></Nav>
+          <Nav navbar>
+              <AppHeaderDropdown direction="down">
+                  <DropdownToggle nav>
+                      <i className='fa fa-user'></i>
+                  </DropdownToggle>
+                  <DropdownMenu>
+                      <DropdownItem ><i className="fa fa-lock"></i><Link to='/login' class='logout'>&nbsp;خروج&nbsp;</Link></DropdownItem>
+                  </DropdownMenu>
+              </AppHeaderDropdown>
+          </Nav>
+          </React.Fragment>
+        );
+      }
 }
 
 DefaultHeader.propTypes = propTypes;
