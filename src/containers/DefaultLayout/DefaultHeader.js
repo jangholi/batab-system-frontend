@@ -31,7 +31,9 @@ class DefaultHeader extends Component {
                       <i className='fa fa-user'></i>
                   </DropdownToggle>
                   <DropdownMenu>
-                      <DropdownItem ><i className="fa fa-lock"></i><Link to='/login' class='logout'>&nbsp;خروج&nbsp;</Link></DropdownItem>
+                      <Link to='/login' class='logout'>
+                        <DropdownItem ><i className="fa fa-lock"></i>&nbsp;خروج&nbsp;</DropdownItem>
+                      </Link>
                   </DropdownMenu>
               </AppHeaderDropdown>
           </Nav>
