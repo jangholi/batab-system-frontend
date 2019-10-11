@@ -62,8 +62,11 @@ class Register extends Component {
             }).then(function () {
                 toast.success("حساب شما با موفقیت ایجاد شد.")
             }).catch(function (error) {
-                toast.error("خطایی رخ داده است.")
-                console.log('error', error)
+                if(error.response.status === 400 && error.response.data.username[0] === "A user with that username already exists."){
+                    toast.error("نام کاربری تکراری است. لطفا نام کاربری دیگری را انتخاب کنید")
+                } else {
+                    toast.error("خطایی رخ داده است.")
+                }
             });
         }
     }
