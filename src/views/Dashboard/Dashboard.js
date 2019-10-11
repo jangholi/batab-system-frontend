@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Jumbotron, Row } from 'reactstrap';
+import axios from "axios/index";
 
 class Dashboard extends Component {
+    componentDidMount(){
+        axios({
+            method: 'get',
+            url: 'https://batab-backend-batab.fandogh.cloud/users/program',
+            headers: {
+                'Authorization': ' JWT ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6Im1hcmphbjAxMTEiLCJleHAiOjE1NzA4MzczMjcsImVtYWlsIjoibWFyamFuLmphbmdob2xpQGdtYWlsLmNvbSJ9.BIlb-Az31pxUlbu7DWA7DPP3KooH1v8DoxDIM30byBg"
+            }
+        }).then(data => {
+            this.props.history.push('/dashboard')
+            console.log('success', data)
+        }).catch(error => {
+            // toast.error("خطایی رخ داده است.")
+            console.log('error', error)
+        });
+    }
 
     render() {
         return (
