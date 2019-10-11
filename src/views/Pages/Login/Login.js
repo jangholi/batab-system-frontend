@@ -30,10 +30,11 @@ class Login extends Component {
                 url: 'https://batab-backend-batab.fandogh.cloud/users/login',
                 data: loginObj,
 
-            }).then(function (data) {
+            }).then(data => {
                 this.props.history.push('/dashboard')
                 console.log('success', data)
-            }).catch(function (error) {
+            }).catch(error => {
+                toast.error("خطایی رخ داده است.")
                 console.log('error', error)
             });
         }
