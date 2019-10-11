@@ -30,12 +30,14 @@ class Login extends Component {
                 url: 'https://batab-backend-batab.fandogh.cloud/users/login',
                 data: loginObj,
 
-            }).then(data => {
+            }).then(() => {
                 this.props.history.push('/dashboard')
-                console.log('success', data)
-            }).catch(error => {
-                toast.error("خطایی رخ داده است.")
-                console.log('error', error)
+            }).catch(function(error) {
+                if (error && error.response && error.response.data && error.response.data.non_field_errors[0] === 'Unable to log in with provided credentials.'){
+                    toast.error("نام کاربری یا کلمه ‌عبور اشتباه است")
+                } else {
+                    toast.error("خطایی رخ داده است")
+                }
             });
         }
     }
