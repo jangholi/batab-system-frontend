@@ -40,28 +40,29 @@ class Register extends Component {
     register(){
         var registerObj = this.createRegisterObj();
 
-        var testObj = {
-            "username": "amir",
-            "email": "a.yaghoobi.dev@gmail.com",
-            "heigth": 180,
-            "weight": 75,
-            "gender": "M",
-            "practice_from": "2019-08-12",
-            "practice_to": "2019-09-12",
-            "password": "asdasdasd123",
-            "tobacco_consumption": false,
-            "arthritic_disease": false,
-            "internal_disease": false
-        }
+        // var testObj = {
+        //     "username": "amir1",
+        //     "email": "a.yaghoobi.dev@gmail.com",
+        //     "heigth": 180,
+        //     "weight": 75,
+        //     "gender": "M",
+        //     "practice_from": "2019-08-12",
+        //     "practice_to": "2019-09-12",
+        //     "password": "asdasdasd123",
+        //     "tobacco_consumption": false,
+        //     "arthritic_disease": false,
+        //     "internal_disease": false
+        // }
         if(this.validateRegister()){
             axios({
                 method: 'post',
                 url: 'https://batab-backend-batab.fandogh.cloud/users/',
-                data: testObj,
+                data: registerObj,
 
-            }).then(function (data) {
-                console.log('success', data)
+            }).then(function () {
+                toast.success("حساب شما با موفقیت ایجاد شد.")
             }).catch(function (error) {
+                toast.error("خطایی رخ داده است.")
                 console.log('error', error)
             });
         }
