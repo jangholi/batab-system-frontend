@@ -12,7 +12,7 @@ class Dashboard extends Component {
 
         axios({
             method: 'get',
-            url: 'https://batab-backend-batab.fandogh.cloud/users/program',
+            url: 'https://batab-api-batab.fandogh.cloud/users/program',
             headers: {
                 'Authorization': ' JWT ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6Im1hcmphbjAxMTEiLCJleHAiOjE1NzA4MzczMjcsImVtYWlsIjoibWFyamFuLmphbmdob2xpQGdtYWlsLmNvbSJ9.BIlb-Az31pxUlbu7DWA7DPP3KooH1v8DoxDIM30byBg"
             }
