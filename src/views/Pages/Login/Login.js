@@ -33,11 +33,12 @@ class Login extends Component {
             }).then(() => {
                 this.props.history.push('/dashboard')
             }).catch(function(error) {
-                // if (error && error.response && error.response.data && error.response.data.non_field_errors[0] === 'Unable to log in with provided credentials.'){
-                //     toast.error("نام کاربری یا کلمه ‌عبور اشتباه است")
-                // } else {
-                //     toast.error("خطایی رخ داده است")
-                // }
+                console.log('error', error.response)
+                if (error && error.response && error.response.data && error.response.data.message === "username or password is incorrect"){
+                    toast.error("نام کاربری یا کلمه ‌عبور اشتباه است")
+                } else {
+                    toast.error("خطایی رخ داده است")
+                }
             });
         }
     }
