@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios/index";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Cookies } from 'react-cookie';
 
 class Login extends Component {
     constructor(props) {
@@ -30,8 +31,10 @@ class Login extends Component {
                 url: 'https://batab-api-batab.fandogh.cloud/users/login',
                 data: loginObj,
 
-            }).then(() => {
-                this.props.history.push('/dashboard')
+            }).then((res) => {
+                const cookies = new Cookies();
+                cookies.set('token', res.data.token);
+                this.props.history.push('/dashboard');
             }).catch(function(error) {
                 console.log('error', error.response)
                 if (error && error.response && error.response.data && error.response.data.message === "username or password is incorrect"){
