@@ -4,6 +4,12 @@ import axios from "axios/index";
 import { Cookies } from 'react-cookie';
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            program: []
+        }
+    }
     componentDidMount(){
         const cookies = new Cookies();
         let auth_token = cookies.get('token')
@@ -13,9 +19,11 @@ class Dashboard extends Component {
             headers: {
                 'Authorization': ' Bearer ' + auth_token
             }
-        }).then(data => {
+        }).then(res => {
             this.props.history.push('/dashboard')
-            console.log('success', data)
+            this.setState({
+                program: res.data
+            })
         });
     }
 
