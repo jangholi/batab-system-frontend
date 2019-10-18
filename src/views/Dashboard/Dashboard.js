@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Jumbotron, Row } from 'reactstrap';
 import axios from "axios/index";
+import { Cookies } from 'react-cookie';
 
 class Dashboard extends Component {
     componentDidMount(){
+
+        const cookies = new Cookies();
+        let auth_token = cookies.get('token')
+        console.log('auth_token', auth_token)
+
         axios({
             method: 'get',
             url: 'https://batab-backend-batab.fandogh.cloud/users/program',
