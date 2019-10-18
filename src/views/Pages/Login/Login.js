@@ -27,17 +27,17 @@ class Login extends Component {
         if(this.validateLogin()){
             axios({
                 method: 'post',
-                url: 'https://batab-backend-batab.fandogh.cloud/users/login',
+                url: 'https://batab-api-batab.fandogh.cloud/users/login',
                 data: loginObj,
 
             }).then(() => {
                 this.props.history.push('/dashboard')
             }).catch(function(error) {
-                if (error && error.response && error.response.data && error.response.data.non_field_errors[0] === 'Unable to log in with provided credentials.'){
-                    toast.error("نام کاربری یا کلمه ‌عبور اشتباه است")
-                } else {
-                    toast.error("خطایی رخ داده است")
-                }
+                // if (error && error.response && error.response.data && error.response.data.non_field_errors[0] === 'Unable to log in with provided credentials.'){
+                //     toast.error("نام کاربری یا کلمه ‌عبور اشتباه است")
+                // } else {
+                //     toast.error("خطایی رخ داده است")
+                // }
             });
         }
     }
