@@ -5,23 +5,17 @@ import { Cookies } from 'react-cookie';
 
 class Dashboard extends Component {
     componentDidMount(){
-
         const cookies = new Cookies();
         let auth_token = cookies.get('token')
-        console.log('auth_token', auth_token)
-
         axios({
             method: 'get',
             url: 'https://batab-api-batab.fandogh.cloud/users/program',
             headers: {
-                'Authorization': ' JWT ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6Im1hcmphbjAxMTEiLCJleHAiOjE1NzA4MzczMjcsImVtYWlsIjoibWFyamFuLmphbmdob2xpQGdtYWlsLmNvbSJ9.BIlb-Az31pxUlbu7DWA7DPP3KooH1v8DoxDIM30byBg"
+                'Authorization': ' Bearer ' + auth_token
             }
         }).then(data => {
             this.props.history.push('/dashboard')
             console.log('success', data)
-        }).catch(error => {
-            // toast.error("خطایی رخ داده است.")
-            console.log('error', error)
         });
     }
 
