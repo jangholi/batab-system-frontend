@@ -14,12 +14,12 @@ class Register extends Component {
             email: '',
             gender: '',
             practice_from: '',
-            practice_to: '',
+            arthritic_disease_select: '',
             heigth: null,
             weight: null,
             password: '',
             retypePassword: '',
-            tobacco_consumption: '',
+            tobacco_consumption: null,
             arthritic_disease: '',
             internal_disease: '',
             history: '',
@@ -31,7 +31,7 @@ class Register extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        if(e.target.name === 'history'){
+        if(e.target.name === 'arthritic_disease'){
             this.setState({
                 hideHistoryDate: e.target.value === 'true' ? false : true
             })
@@ -39,7 +39,10 @@ class Register extends Component {
     }
     register(){
         var registerObj = this.createRegisterObj();
-        if(this.validateRegister()){
+        console.log('registerObj', registerObj)
+
+
+        if(this.validateRegister(registerObj)){
             axios({
                 method: 'post',
                 url: 'https://batab-api-batab.fandogh.cloud/users/',
@@ -57,7 +60,7 @@ class Register extends Component {
             });
         }
     }
-    validateRegister(){
+    validateRegister(registerObj){
         var validate = false;
         if(this.state.username){
             validate = true
@@ -113,11 +116,11 @@ class Register extends Component {
             toast.success("لطفا مصرف دخانیات را مشخص کنید.",{className: 'medium-font'});
             return
         }
-        if(this.state.arthritic_disease){
+        if(this.state.history){
             validate = true
         } else {
             validate = false
-            toast.success("لطفا سابقه بیماری مفصلی را مشخص کنید.",{className: 'medium-font'});
+            toast.success("لطفا سابقه‌ی تمرین را مشخص کنید.",{className: 'medium-font'});
             return
         }
         if(this.state.internal_disease){
@@ -127,28 +130,18 @@ class Register extends Component {
             toast.success("لطفا سابقه بیماری داخلی را مشخص کنید.",{className: 'medium-font'});
             return
         }
-        if(this.state.history){
-            validate = true
+        if(this.state.arthritic_disease){
+            if(registerObj.arthritic_disease == '' || registerObj.arthritic_disease == "null"){
+                validate = false
+                toast.success('لطفا نوع بیماری مفصلی را انتخاب کنید.')
+                return
+            } else {
+                validate = true
+            }
         } else {
             validate = false
-            toast.success("لطفا سابقه‌ی تمرین را مشخص کنید.",{className: 'medium-font'});
+            toast.success("لطفا سابقه بیماری مفصلی را مشخص کنید.",{className: 'medium-font'});
             return
-        }
-        if(this.state.history && this.state.history === 'true'){
-            if(this.state.practice_from){
-                validate = true
-            } else {
-                validate = false
-                toast.success("لطفا زمان شروع سابقه‌ی تمرین را وارد کنید.",{className: 'medium-font'});
-                return
-            }
-            if(this.state.practice_to){
-                validate = true
-            } else {
-                validate = false
-                toast.success("لطفا زمان پایان سابقه‌ی تمرین را وارد کنید.",{className: 'medium-font'});
-                return
-            }
         }
         if(this.state.heigth){
             validate = true
@@ -175,14 +168,23 @@ class Register extends Component {
             weight: Number(this.state.weight),
             gender: this.state.gender,
             password: this.state.password,
-            tobacco_consumption: !!this.state.tobacco_consumption,
-            arthritic_disease: !!this.state.arthritic_disease,
-            internal_disease: !!this.state.internal_disease,
+            tobacco_consumption: this.state.tobacco_consumption==='true' ? true : (this.state.tobacco_consumption==='false' ? false : ''),
+            internal_disease: this.state.internal_disease==='true' ? true : (this.state.internal_disease==='false' ? false : '')
         }
+
         if(this.state.history && this.state.history === 'true'){
-            registerObj.practice_from = this.state.practice_from;
-            registerObj.practice_to = this.state.practice_to;
+            registerObj.practice_from = new Date();
+        } else {
+            delete registerObj.practice_from
         }
+        console.log('this.state.arthritic_disease', this.state.arthritic_disease)
+        if(this.state.arthritic_disease && this.state.arthritic_disease === 'true'){
+            registerObj.arthritic_disease = this.state.arthritic_disease_select;
+            // this.setState({
+            //     arthritic_disease: this.state.arthritic_disease_select
+            // })
+        }
+        console.log('arthritic_disease', this.state.arthritic_disease)
         return registerObj
     }
     render() {
@@ -259,17 +261,17 @@ class Register extends Component {
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
-                                        <FormGroup inline>
-                                            <label className="text-muted">سابقه بیماری مفصلی:</label>
+                                        <FormGroup inline >
+                                            <label className="text-muted">سابق تمرین:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" value={true}/>
+                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'true'}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" value={false}/>
+                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'false'} />
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
@@ -289,39 +291,29 @@ class Register extends Component {
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
-                                        <FormGroup inline >
-                                            <label className="text-muted">سابق تمرین:</label>
+                                        <FormGroup inline>
+                                            <label className="text-muted">سابقه بیماری مفصلی:</label>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'true'}/>
+                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" value={true}/>
                                                     <span className='ml-1'>بله</span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check inline>
                                                 <Label check>
-                                                    <Input type="radio" onChange={this.onChange} name={'history'} value={'false'} />
+                                                    <Input onChange={this.onChange} name={'arthritic_disease'} type="radio" value={false}/>
                                                     <span className='ml-1'>خیر</span>
                                                 </Label>
                                             </FormGroup>
                                         </FormGroup>
-                                        <Row hidden = {this.state.hideHistoryDate}>
-                                            <InputGroup className="mb-3 ltr col-6">
-                                                <InputGroupAddon addonType="prepend">
-                                                    <InputGroupText>
-                                                        <i className="fa fa-calendar"></i>
-                                                    </InputGroupText>
-                                                </InputGroupAddon>
-                                                <Input type="number" onChange={this.onChange} name={'practice_from'} placeholder="از" />
-                                            </InputGroup>
-                                            <InputGroup className="mb-3 ltr col-6">
-                                                <InputGroupAddon addonType="prepend">
-                                                    <InputGroupText>
-                                                        <i className="fa fa-calendar"></i>
-                                                    </InputGroupText>
-                                                </InputGroupAddon>
-                                                <Input type="number" onChange={this.onChange} name={'practice_to'} placeholder="تا" />
-                                            </InputGroup>
-                                        </Row>
+                                        <FormGroup inline hidden = {this.state.hideHistoryDate}>
+                                            <Label className="text-muted">نوع بیماری مفصلی:</Label>
+                                            <Input type="select" className='arithmetic-selectbox' onChange={this.onChange} name={'arthritic_disease_select'}>
+                                                <option value='null'>انتخاب</option>
+                                                <option value='UPPER'>بالا تنه</option>
+                                                <option value='LOWER'>پایین تنه</option>
+                                            </Input>
+                                        </FormGroup>
                                         <Row>
                                             <InputGroup className="mb-3 ltr col-6">
                                                 <InputGroupAddon addonType="prepend">
