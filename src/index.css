@@ -1,1 +1,4 @@
-
+.arithmetic-selectbox{
+    display: inline-block!important;
+    width: fit-content!important;
+}
